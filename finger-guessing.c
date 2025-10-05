@@ -8,9 +8,9 @@ int main(){
     int round = 1;
     
     srand((unsigned int)time(NULL));
-    printf("剪刀石头布游戏 - 五局三胜制\n");
+    printf("剪刀石头布游戏 - 三局两胜制\n");
     
-    while (plyr_wins < 3 && cpt_wins < 3) {
+    while (plyr_wins < 2 && cpt_wins < 2) {
         printf("\n第%d局 - 比分: 你 %d : %d 电脑\n", round, plyr_wins, cpt_wins);
         printf("请输入你的选择:0(剪刀) 1(石头) 2(布)\n");
         scanf("%d",&plyr);
