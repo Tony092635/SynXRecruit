@@ -1,21 +1,31 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 int main(){
+    char input[10];
     int plyr = 0, cpt = 0;
     int plyr_wins = 0, cpt_wins = 0;
     int round = 1;
     
     srand((unsigned int)time(NULL));
     printf("剪刀石头布游戏 - 五局三胜制\n");
+    printf("输入 zzz 可触发作弊模式（每把必赢）\n");
     
     while (plyr_wins < 3 && cpt_wins < 3) {
         printf("\n第%d局 - 比分: 你 %d : %d 电脑\n", round, plyr_wins, cpt_wins);
-        printf("请输入你的选择:0(剪刀) 1(石头) 2(布)\n");
-        scanf("%d",&plyr);
+        printf("请输入你的选择:0(剪刀) 1(石头) 2(布) 或 zzz（作弊）\n");
+        scanf("%s", input);
         
-        cpt = rand() % 3;
+        if (strcmp(input, "zzz") == 0) {
+            printf("作弊模式激活，本局必胜！\n");
+            plyr = 1;
+            cpt = 0;
+        } else {
+            plyr = atoi(input);
+            cpt = rand() % 3;
+        }
         
         if (cpt == 0) {
             printf("我出剪刀");
